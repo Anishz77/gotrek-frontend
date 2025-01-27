@@ -1,0 +1,28 @@
+/* Homepage.css */
+
+.container {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.slider-container {
+    position: relative;
+    padding: 20px;
+    background-color: #f5f5f5; /* Light gray background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slick-slide {
+    padding: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #333;
+}
+

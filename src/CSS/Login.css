@@ -1,0 +1,83 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../Assets/manaslu\ 2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    
+  }
+  
+  .login-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    
+  }
+  
+  .login-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .login-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    
+  }
+  
+  .btn {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem;
+  }
+  

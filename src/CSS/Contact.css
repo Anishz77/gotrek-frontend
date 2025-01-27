@@ -1,0 +1,213 @@
+/* Contact.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Header */
+#page-header {
+    background-image: url('../Assets/manaslu\ 2.jpg');
+    padding: 50px 0;
+    text-align: center;
+}
+
+#page-header h2 {
+    font-size: 36px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+#page-header p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Contact Details */
+#contact-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 80px;
+}
+
+.details {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.details span {
+    font-size: 14px;
+    color: #555;
+}
+
+.details h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.details h3 {
+    font-size: 20px;
+    color: #666;
+    margin: 20px 0 10px;
+}
+
+.details li {
+    list-style: none;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.details li i {
+    font-size: 20px;
+    color: #333;
+    margin-right: 15px;
+}
+
+.details li p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Map */
+.map {
+    flex: 1;
+}
+
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+/* Form Details */
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 80px;
+}
+
+form {
+    flex: 1;
+    margin-right: 30px;
+}
+
+form span {
+    font-size: 14px;
+    color: #555;
+}
+
+form h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 15px 30px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #555;
+}
+
+/* People */
+.people {
+    background-image: url('../Assets/rara.jpg');
+    flex: 1;
+    text-align: center;
+}
+
+.people img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.people p {
+    font-size: 26px;
+    color: #000000;
+}
+
+.people p span {
+    font-weight: bolder;
+    color: #000000;
+}
+
+/* Newsletter */
+#newsletter {
+    background-image: url('../Assets/fewa.jpg');
+    padding: 50px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newstext {
+    flex: 1;
+}
+
+.newstext h4 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #000000;
+}
+
+.newstext p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.newstext p span {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.form {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form input {
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.form button {
+    padding: 15px 30px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form button:hover {
+    background: #555;
+}

@@ -1,0 +1,137 @@
+.buynow-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.product-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.main-image {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-left: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.rating {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 24px;
+    color: #E91E63;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+}
+
+.size-option {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.size-option.selected {
+    background-color: #E91E63;
+    color: white;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buy-button {
+    padding: 10px 20px;
+    background-color: #E91E63;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.additional-info {
+    margin: 10px 0;
+    font-size: 14px;
+}

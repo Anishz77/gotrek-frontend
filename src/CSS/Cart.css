@@ -1,0 +1,186 @@
+.container-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  background-image: url('../Assets/logo.png');
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Optional: Add padding for better spacing */
+  box-sizing: border-box; /* Include padding in the height calculation */
+}
+
+.card {
+  width: 100%;
+  max-width: 60rem; /* Increased width */
+  background: rgba(255, 255, 255, 0.2); /* Transparent white background */
+  backdrop-filter: blur(5px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 2.5rem; /* Increased padding */
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+.card.dark {
+  background: rgba(26, 32, 44, 0.2); /* Transparent dark background for dark mode */
+}
+
+.card h1 {
+  font-size: 2rem; /* Increased font size */
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+}
+
+.card h1.dark {
+  color: rgb(0, 0, 0);
+}
+
+.card .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5); /* Adjusted border color for transparency */
+  padding-bottom: 1rem;
+  animation: fadeInLeft 0.5s ease-in-out;
+}
+
+.card .item.dark {
+  border-bottom: 1px solid rgba(74, 85, 104, 0.5); /* Adjusted border color for dark mode */
+}
+
+.card .item img {
+  width: 5rem; /* Increased image size */
+  height: 5rem; /* Increased image size */
+  border-radius: 0.5rem;
+}
+
+.card .item h2 {
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.card .item h2.dark {
+  color: rgb(0, 0, 0);
+}
+
+.card .item p {
+  font-size: 1rem; /* Increased font size */
+  color: #718096;
+}
+
+.card .item p.dark {
+  color: #000000;
+}
+
+.card .item button {
+  color: #f56565;
+  font-weight: 600;
+}
+
+.card .item button.dark {
+  color: #fc8181;
+}
+
+.card .total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: fadeInLeft 0.5s ease-in-out;
+}
+
+.card .total h3 {
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 600;
+  color: #000000;
+}
+
+.card .total h3.dark {
+  color: rgb(0, 0, 0);
+}
+
+.card .total p {
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 600;
+  color: #000000;
+}
+
+.card .total p.dark {
+  color: rgb(0, 0, 0);
+}
+
+.card .checkout-btn {
+  background-color: #4299e1;
+  color: rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+  animation: bounce 1s infinite;
+}
+
+.card .checkout-btn:hover {
+  background-color: #3182ce;
+}
+
+.card .checkout-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.card .checkout-btn.dark:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.9);
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #ff0000; /* Dark red color for the icon */
+  font-size: 2.5rem; /* Increased font size for a larger icon */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.remove-btn:hover {
+  color: #ff0000; /* Slightly lighter red on hover */
+}
+
+.remove-btn:focus {
+  outline: none;
+}
+
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
