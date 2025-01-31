@@ -81,3 +81,20 @@ body, html {
     margin-top: 1rem;
   }
   
+  .password-info {
+    padding: 8px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .password-info a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #007bff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  
+  .password-info a:hover {
+    color: #0056b3 !important;
+  }
+  
