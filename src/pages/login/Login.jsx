@@ -4,47 +4,21 @@ import { toast } from 'react-toastify';
 import { loginUserApi } from '../../apis/Api'; // Ensure this function returns user data
 import '../../CSS/Login.css';
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [passwordStrength, setPasswordStrength] = useState('');
+  const [daysUntilExpiration, setDaysUntilExpiration] = useState(null);
+  const [showPasswordInfo, setShowPasswordInfo] = useState(false);
 
   const navigate = useNavigate();
 
-  const checkPasswordStrength = (password) => {
-    if (password.length === 0) {
-      setPasswordStrength('');
-      return;
-    }
-
-    if (password.length < 8) {
-      setPasswordStrength('Password must be at least 8 characters');
-      return false;
-    }
-
-    const hasUpperCase = /[A-Z]/.test(password);
-    const hasLowerCase = /[a-z]/.test(password);
-    const hasNumbers = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-    let strength = 0;
-    if (hasUpperCase) strength++;
-    if (hasLowerCase) strength++;
-    if (hasNumbers) strength++;
-    if (hasSpecialChar) strength++;
-
-    if (strength === 4) {
-      setPasswordStrength('Strong password');
-      return true;
-    } else if (strength >= 2) {
-      setPasswordStrength('Moderate password - add more character types for stronger password');
-      return true;
-    } else {
-      setPasswordStrength('Weak password - include uppercase, lowercase, numbers and special characters');
-      return false;
-    }
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setShowPasswordInfo(newPassword.length > 0);
   };
 
   const validation = () => {
@@ -82,24 +56,38 @@ const Login = () => {
       const response = await loginUserApi(data);
 
       if (response.data.success === false) {
+        if (response.data.passwordExpired) {
+          toast.error('Your password has expired. Please reset your password.');
+          navigate('/forgot_password');
+          return;
+        }
         toast.error(response.data.message);
       } else {
         toast.success(response.data.message);
+        const userData = response.data.userData;
 
-        // Ensure userData contains required fields
-        const userData = response.data.userData; // This should include firstName, lastName, email, phone, etc.
+        // Calculate days until password expiration
+        const expirationDate = new Date(userData.passwordExpiresAt);
+        const today = new Date();
+        const daysLeft = Math.ceil((expirationDate - today) / (1000 * 60 * 60 * 24));
+        
+        if (daysLeft <= 7) {
+          toast.warning(`Your password will expire in ${daysLeft} days. Please change it soon.`);
+        }
 
-        // Store user data and token in local storage
         localStorage.setItem('user', JSON.stringify(userData));
         localStorage.setItem('token', response.data.token);
-        window.location.reload();
-        navigate('/');
+        localStorage.setItem('passwordExpiresAt', userData.passwordExpiresAt);
+        
+        // Use window.location.href instead of navigate
+        window.location.href = '/';
       }
     } catch (error) {
       toast.error('An error occurred during login.');
       console.error('Login Error:', error.message);
     }
   };
+
   useEffect(()=>{
     if(localStorage.getItem("user")){
       navigate("/");
@@ -132,26 +120,23 @@ const Login = () => {
               id="password"
               placeholder="Enter your password (minimum 8 characters)"
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                checkPasswordStrength(e.target.value);
-              }}
-              onKeyUp={(e) => checkPasswordStrength(e.target.value)}
+              onChange={handlePasswordChange}
             />
             {passwordError && <p className="text-danger">{passwordError}</p>}
-            {passwordStrength && (
-              <p className={`mt-1 ${
-                passwordStrength.includes('Strong') ? 'text-success' : 
-                passwordStrength.includes('Moderate') ? 'text-warning' : 'text-danger'
-              }`}>
-                {passwordStrength}
-              </p>
-            )}
           </div>
           <div className="form-check mb-3">
             <input type="checkbox" className="form-check-input" id="rememberMe" />
             <label className="form-check-label" htmlFor="rememberMe">Remember Me</label>
           </div>
+          
+          {showPasswordInfo && (
+            <div className="password-info mt-2">
+              <Link to="#" className="text-primary text-decoration-none">
+                Important: Passwords expire after 30 days for security purposes.
+              </Link>
+            </div>
+          )}
+
           <button onClick={handleLogin} className="btn btn-danger w-100">
             Login
           </button>

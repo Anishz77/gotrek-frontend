@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import '../../CSS/Register.css';
 import { registerUserApi } from '../../apis/Api';
-import { toast } from 'react-toastify';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -19,6 +19,8 @@ const Register = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [phoneError, setPhoneError] = useState('');
 
+  const [passwordStrength, setPasswordStrength] = useState('');
+
   const navigate = useNavigate(); // useNavigate hook
 
   const handleFirstname = (e) => {
@@ -34,7 +36,9 @@ const Register = () => {
   };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setPasswordStrength(checkPasswordStrength(newPassword));
   };
 
   const handleConfirmPassword = (e) => {
@@ -43,6 +47,23 @@ const Register = () => {
 
   const handlePhone = (e) => {
     setPhone(e.target.value);
+  };
+
+  const checkPasswordStrength = (password) => {
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    
+    if (password.length < 8) {
+      return 'Too Short';
+    }
+    
+    const strength = [hasUpperCase, hasLowerCase, hasNumbers, hasSpecialChar].filter(Boolean).length;
+    
+    if (strength === 4) return 'Strong';
+    if (strength === 3) return 'Moderate';
+    return 'Weak';
   };
 
   const validate = () => {
@@ -65,6 +86,9 @@ const Register = () => {
 
     if (password.trim() === '') {
       setPasswordError('Password is Required');
+      isValid = false;
+    } else if (password.length < 8) {
+      setPasswordError('Password must be at least 8 characters long');
       isValid = false;
     }
 
@@ -175,6 +199,17 @@ const Register = () => {
               onChange={handlePassword}
             />
             {passwordError && <p className="text-danger">{passwordError}</p>}
+            {password && !passwordError && (
+              <p className={`text-${
+                passwordStrength === 'Strong' 
+                  ? 'success' 
+                  : passwordStrength === 'Moderate' 
+                    ? 'warning' 
+                    : 'danger'
+              }`}>
+                Password Strength: {passwordStrength}
+              </p>
+            )}
           </div>
           <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
