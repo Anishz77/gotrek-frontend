@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h4>TrailTrekker</h4>
+          <h4>GoTrek</h4>
           <p>Subscribe</p>
           <p>Get 10% off your first order</p>
           <div className="subscribe-form">
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Support</h4>
           <p>Kathmandu, Nepal</p>
-          <p>trailtrek@gmail.com</p>
+          <p>gotrek@gmail.com</p>
           <p>+0800-98889-9919</p>
         </div>
         <div className="footer-section">
