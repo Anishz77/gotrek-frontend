@@ -92,7 +92,7 @@ const Navbar = () => {
                         value={searchQuery}
                         onChange={handleSearchChange}
                     />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
+                    <button className="btn btn-outline-success" type="submit">S</button>
                 </form>
             </ul>
             <div className="nav-login-cart">
