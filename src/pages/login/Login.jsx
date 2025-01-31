@@ -10,7 +10,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [daysUntilExpiration, setDaysUntilExpiration] = useState(null);
   const [showPasswordInfo, setShowPasswordInfo] = useState(false);
 
   const navigate = useNavigate();
