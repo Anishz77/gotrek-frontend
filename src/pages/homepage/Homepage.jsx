@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { getAllProducts } from "../../apis/Api";
-import ProductCard from "../../components/ProductCard";
-import Hero from "./Hero";
-import '../../CSS/Homepage.css'; // Ensure you create this CSS file and add the necessary styles
 import flashSaleImage from '../../Assets/i1.png'; // Import your image
 import Footer from "../../components/Footer";
+import ProductCard from "../../components/ProductCard";
+import '../../CSS/Homepage.css'; // Ensure you create this CSS file and add the necessary styles
+import Hero from "./Hero";
 
 const Homepage = ({ productInformation, color }) => {
     const [products, setProducts] = useState([]);

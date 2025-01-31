@@ -1,38 +1,38 @@
 
-import './App.css';
 import {
+  Route,
   BrowserRouter as Router,
-  Routes,
-  Route
+  Routes
 } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/Navbar';
 import Homepage from './pages/homepage/Homepage';
 import Register from './pages/register/Register';
-import Navbar from './components/Navbar';
 
 
 
 // Toast Config
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Login from './pages/login/Login';
+import BuyNow from './components/BuyNow';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminUpdate from './pages/admin/AdminUpdate';
-import AdminRoutes from './protected_routes/AdminRoutes';
-import Profile from './pages/profile/Profile';
-import UserRoutes from './protected_routes/UserRoutes';
-import ForgotPassword from './pages/forgot_password/ForgotPassword';
-import Destination from './pages/navbar/Destination';
-import Sidebar from './pages/Sidebar/Sidebar';
-import BuyNow from './components/BuyNow';
-import Contact from './pages/navbar/Contact';
-import Checkout from './pages/navbar/Checkout';
 import Cart from './pages/Cart/Cart';
 import Complete from './pages/Cart/Complete';
+import ForgotPassword from './pages/forgot_password/ForgotPassword';
+import Login from './pages/login/Login';
+import Checkout from './pages/navbar/Checkout';
+import Contact from './pages/navbar/Contact';
+import Destination from './pages/navbar/Destination';
+import Profile from './pages/profile/Profile';
+import Sidebar from './pages/Sidebar/Sidebar';
+import AdminRoutes from './protected_routes/AdminRoutes';
+import UserRoutes from './protected_routes/UserRoutes';
 
-import Settings from './pages/setting/Settings';
 import Blog from './pages/navbar/Blog';
-import Trails from './pages/navbar/Trails';
 import RouteDetail from './pages/navbar/RouteDetail';
+import Trails from './pages/navbar/Trails';
+import Settings from './pages/setting/Settings';
 
 
 
