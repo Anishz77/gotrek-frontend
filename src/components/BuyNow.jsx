@@ -73,7 +73,7 @@ const BuyNow = () => {
           </div>
           <button className="buy-button" onClick={addToCart}>Buy Now</button>
           <div className="additional-info">
-            <div>Free Delivery</div>
+            <div>Free D</div>
             <div>Free 30 Days Delivery Returns. Details</div>
           </div>
         </div>
