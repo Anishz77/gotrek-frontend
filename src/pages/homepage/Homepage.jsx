@@ -37,7 +37,7 @@ const Homepage = ({ productInformation, color }) => {
                         <img src={flashSaleImage} alt="Flash Sale" />
                     </div>
                     <div className="slider-container">
-                        <h2>Flash Sale</h2>
+                        <h2>Flash Sales</h2>
                         <Slider {...settings}>
                             {products.map((singleProduct) => (
                                 <div key={singleProduct.id} className="product-card-container">

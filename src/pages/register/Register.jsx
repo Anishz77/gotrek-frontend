@@ -158,7 +158,7 @@ const Register = () => {
               type="text"
               className="form-control"
               id="lastName"
-              placeholder="Enter your last name"
+              placeholder="Enter your last "
               value={lastName}
               onChange={handleLastname}
             />
