@@ -115,7 +115,7 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <Link to="/register" className="btn btn-outline-danger me-2">Regist</Link>
+                        <Link to="/register" className="btn btn-outline-danger me-2">Registe</Link>
                         <Link to="/login" className="btn btn-outline-success">Login</Link>
                     </>
                 )}
