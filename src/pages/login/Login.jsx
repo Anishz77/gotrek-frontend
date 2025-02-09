@@ -21,22 +21,11 @@ const Login = () => {
   };
 
   const validation = () => {
-    let isValid = true;
-
-    if (email === '' || email.includes('@') === false) {
-      setEmailError('Email is empty or invalid');
-      isValid = false;
+    if (!email || !password) {
+      toast.error("Please fill in all fields");
+      return false;
     }
-    if (password.trim() === '') {
-      setPasswordError('Password is empty');
-      isValid = false;
-    }
-    if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters');
-      isValid = false;
-    }
-
-    return isValid;
+    return true;
   };
 
   const handleLogin = async (e) => {
@@ -55,12 +44,14 @@ const Login = () => {
       const response = await loginUserApi(data);
 
       if (response.data.success === false) {
-        if (response.data.passwordExpired) {
-          toast.error('Your password has expired. Please reset your password.');
-          navigate('/forgot_password');
-          return;
+        // Show remaining attempts if login failed
+        if (response.data.attemptsLeft !== undefined) {
+          toast.error(`Invalid credentials. ${response.data.attemptsLeft} attempts remaining.`);
+        } else if (response.data.isLocked) {
+          toast.error('Account is locked. Please try again later.');
+        } else {
+          toast.error(response.data.message);
         }
-        toast.error(response.data.message);
       } else {
         toast.success(response.data.message);
         const userData = response.data.userData;
@@ -105,7 +96,7 @@ const Login = () => {
               type="email"
               className="form-control"
               id="email"
-              placeholder="Enter your email address"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -117,7 +108,7 @@ const Login = () => {
               type="password"
               className="form-control"
               id="password"
-              placeholder="Enter your password (minimum 8 characters)"
+              placeholder="Enter your password"
               value={password}
               onChange={handlePasswordChange}
             />

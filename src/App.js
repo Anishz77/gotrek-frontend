@@ -1,4 +1,3 @@
-
 import {
   Route,
   BrowserRouter as Router,
@@ -59,12 +58,11 @@ function App() {
         </Route>
 
 
-        {/* Admin Routes */}
+        {/* Admin Routes - Protected */}
         <Route element={<AdminRoutes />}>
+          <Route path='/admin' element={<Sidebar />} />
           <Route path='/admin/dashboard' element={<AdminDashboard />} />
           <Route path='/admin/update/:id' element={<AdminUpdate />} />
-          
-          
         </Route>
 
         {/* Forgot Password */}
@@ -73,7 +71,6 @@ function App() {
         {/* Destination */}
         <Route path='/destination' element={<Destination/>} />
         <Route path="/route/:routeName" element={<RouteDetail/>} /> {/* Dynamic route */}
-        <Route path='/admin' element={<Sidebar/>} />
         <Route path='/buynow/:id' element={<BuyNow/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/cart' element={<Cart/>} />

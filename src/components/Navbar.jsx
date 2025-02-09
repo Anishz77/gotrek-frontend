@@ -79,10 +79,12 @@ const Navbar = () => {
                     <Link to='/contact'>Contact</Link>
                     {currentPath === '/contact' && <hr />}
                 </li>
-                <li className={currentPath === '/admin' ? 'active' : ''}>
-                    <Link to='/admin'>Admin Panel</Link>
-                    {currentPath === '/admin' && <hr />}
-                </li>
+                {user?.isAdmin && (
+                    <li className={currentPath === '/admin' ? 'active' : ''}>
+                        <Link to='/admin'>Admin Panel</Link>
+                        {currentPath === '/admin' && <hr />}
+                    </li>
+                )}
                 <form className="search-form d-flex" role="search" onSubmit={handleSearchSubmit}>
                     <input 
                         className="form-control me-2" 

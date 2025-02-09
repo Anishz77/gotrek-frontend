@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import '../../CSS/Sidebar.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import add_product_icon from '../../Assets/Product_Cart.svg';
 import list_product_icon from '../../Assets/Product_list_icon.svg';
-import Footer from '../../components/Footer';
+import '../../CSS/Sidebar.css';
 
 const Sidebar = () => {
 
